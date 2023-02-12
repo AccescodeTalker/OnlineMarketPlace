@@ -1,0 +1,63 @@
+﻿@model WebAppMVCProject.Models.AddViewmodel
+
+@{
+    ViewBag.Title = "ViewAd";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <img src="~/Content/img/topview.png" class=" img img-responsive" style="width:96%" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-2 col-md-2">
+        <img src="~/Content/img/png.png" class=" img img-responsive" style="height:500px" />
+    </div>
+
+    <div class="col-lg-8 col-md-8">
+
+        <h1>@Model.pName<samll>AD-ID:@Model.pId</samll> </h1>
+        <img src="@Url.Content(Model.pimg)" style="width:450px; height:290px  " />
+
+        <div>
+            <h1>Description:</h1>
+            <p>
+                @Model.pdesc
+            </p>
+        </div>
+
+        <table>
+            <tr>
+                <td>Price:@Model.pprice</td>
+                <td>
+                    <div class="col-ig-2 col-md-2 col-sm-2">
+                        <h4 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">
+                            <span class="btn btn-danger"><i style="font-size:24px" class="fa">&#xf07a;</i>@Html.ActionLink("Add To Cart", "Adtocart", new { id = Model.pId })</span>
+                        </h4>
+                        </h4>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Catagory:@Model.cName</td>
+            </tr>
+            <tr>
+                <td>Posted by : @Model.uName</td>
+            </tr>
+            <tr>
+                <td>Çontact:@Model.ucon</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    @if (Convert.ToInt32(Session["uid"]) == Convert.ToInt32(Model.pFKuser))
+                    {
+                        @Html.ActionLink("Close this Ad", "DeleteAd", new { @class = "btn btn-info", id = Model.pId })
+
+                    }
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+﻿@model WebAppMVCProject.Models.product
+@{
+    ViewBag.Title = "AdToCart";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+@using (Html.BeginForm())
+            {
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4">
+                            <img style="min-height:200px; width:200px;" src="@Url.Content(Model.pimg)" />
+                        </div>
+
+                        <div>
+                            <table class="table-responsive">
+                                <tr>
+                                    <td>Product Name: @Model.pName</td>
+                                </tr>
+                                `<tr>
+                                <td>Price: @Model.pprice</td>
+                                <td>
+                                    <input type="number" name="qty" value="1" id="qty" min="1" />
+                                </td>
+                                </tr>
+                                 <tr>
+                                     <div class="col-ig-4 col-md-4 col-sm-2">
+                                         <input type="submit" value="Submit" class="btn btn-default" />
+                                     </div>
+                                 </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            }
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0ae2b1807b3349b68c3d79fd53f266b4" Name="Diagram1">
+        <EntityTypeShape EntityType="ProjectModel.admin" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.category" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.product" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.user" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="ProjectModel.FK__category__CFKadm__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK__product__pFKcat__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK__product__pFKuser__412EB0B6" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ProjectModel.invoice" Width="1.5" PointX="5.75" PointY="6" />
+        <EntityTypeShape EntityType="ProjectModel.order" Width="1.5" PointX="7.5" PointY="2.875" />
+        <AssociationConnector Association="ProjectModel.FK__invoice__iFKuser__5441852A" />
+        <AssociationConnector Association="ProjectModel.FK__orders__oFKinvoi__59063A47" />
+        <AssociationConnector Association="ProjectModel.FK__orders__oFKpro__571DF1D5" />
+        <AssociationConnector Association="ProjectModel.FK__orders__oFKuser__5812160E" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

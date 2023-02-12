@@ -1,0 +1,67 @@
+﻿@model IEnumerable<WebAppMVCProject.Models.product>
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Checkout</h2>
+
+<h4>OrderId:@TempData["random"]</h4>
+
+@if (TempData["cart"] != null)
+{
+    <table class="table-responsive">
+        <thead>
+            <tr>
+                <th>ID:</th>
+                <th>Name:</th>
+                <th>Price:</th>
+                <th>Quantity:</th>
+                <th>Total:</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in TempData["cart"] as List<WebAppMVCProject.Models.cart>)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.price</td>
+                    <td>@item.qty</td>
+                    <td>@item.bill</td>
+                    <td>
+                        <a class="btn btn-danger btn-sm" href="@Url.Action("remove", new {id=item.Id})">&#10008;</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tr>
+            <td>
+               @Html.TextArea("Address");
+            </td>
+        </tr>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>@TempData["total"]</td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+}
+else
+{
+    <h1 style="color:red">Caet is empty...</h1>
+    @Html.ActionLink("Go Back", "Index")
+}
+
+@if (TempData["cart"] != null)
+{
+    using (Html.BeginForm())
+                {
+        <input type="submit" value="Buy" class="btn btn-primary" />
+                }
+}
